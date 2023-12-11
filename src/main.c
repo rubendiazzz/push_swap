@@ -6,11 +6,11 @@
 /*   By: rdiaz-fr <rdiaz-fr@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/11 11:44:39 by rdiaz-fr          #+#    #+#             */
-/*   Updated: 2023/12/11 12:05:38 by rdiaz-fr         ###   ########.fr       */
+/*   Updated: 2023/12/11 12:10:13 by rdiaz-fr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../includes/push_swap.h"
 
 int main(int argc, char **argv)
 {
