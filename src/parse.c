@@ -12,4 +12,6 @@
 
 #include "push_swap.h"
 
+//Start the parsing algorithm
+//Using the turk sorting algorithm
 

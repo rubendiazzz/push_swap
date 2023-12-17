@@ -1,66 +1,35 @@
 #ifndef PUSH_SWAP_H
-# define PUSH_SWAP_H
+#define PUSH_SWAP_H
 
-# include <stdlib.h>
-# include <limits.h>
-# include <stdbool.h>
-# include <unistd.h>
+#include <stdio.h>
+#include <stdbool.h>
+#include <stdlib.h>
 
-typedef struct s_stack_node
-{
-	int					value;
-	int					current_position;
-	int					final_index;
-	int					push_price;
-	bool				above_median;
-	bool				cheapest;
-	struct s_stack_node	*target_node;
-	struct s_stack_node	*next;
-	struct s_stack_node	*prev;
-}				t_stack_node;	
+#define LTL_CASE 3
+#define FIVE_CASE 5
+#define I_32_MIN -2147483648
+#define I_32_MAX 2147483647
 
-//*** Handle input ./push_swap "1 -42 1337" ***
-char			**ft_split(char *str, char separator);
+typedef struct s_stack {
+    struct s_stack *next;
+    int32_t value;
+    int32_t index;
+} t_stack;
 
-//*** Handle errors-free ***
-void			free_matrix(char **argv);
-void			error_free(t_stack_node **a, char **argv, bool flag_argc_2);
-void			free_stack(t_stack_node **stack);
-int				error_repetition(t_stack_node *a, int nbr);
-int				error_syntax(char *str_nbr);
+typedef struct s_two_stacks {
+    t_stack *a, *b;
+    int32_t min, max;
+    int32_t len_b;
+} t_two_stacks;
 
-//*** Stack creation ***
-void			stack_init(t_stack_node **a, char **argv, bool flag_argc_2);
-void			init_nodes(t_stack_node *a, t_stack_node *b);
-void			set_current_position(t_stack_node *stack);
-void			set_price(t_stack_node *a, t_stack_node *b);
-void			set_cheapest(t_stack_node *b);
+t_stack *new_stack(int32_t value, t_two_stacks **stacks);
+t_stack *push(t_stack *stack, int32_t value, t_two_stacks **stacks);
+t_stack *push_b(t_stack *stack, t_two_stacks **stacks);
 
-//*** linked list utils ***
-void			append_node(t_stack_node **stack, int nbr);
-t_stack_node	*find_last_node(t_stack_node *head);
-t_stack_node	*find_smallest(t_stack_node *stack);
-t_stack_node	*return_cheapest(t_stack_node *stack);
-bool			stack_sorted(t_stack_node *stack);
-int				stack_len(t_stack_node *stack);
-void			finish_rotation(t_stack_node **s, t_stack_node *n, char c);
+void print_stacks(t_two_stacks *stacks);
+void print_instruction(char instruction);
 
-//*** Algorithms ***
-void			tiny_sort(t_stack_node **a);
-void			handle_five(t_stack_node **a, t_stack_node **b);
-void			push_swap(t_stack_node **a, t_stack_node **b);
-
-//*** Commands ***
-void			sa(t_stack_node **a, bool checker);
-void			sb(t_stack_node **b, bool checker);
-void			ss(t_stack_node **a, t_stack_node **b, bool checker);
-void			ra(t_stack_node **a, bool checker);
-void			rb(t_stack_node **b, bool checker);
-void			rr(t_stack_node **a, t_stack_node **b, bool checker);
-void			rra(t_stack_node **a, bool checker);
-void			rrb(t_stack_node **b, bool checker);
-void			rrr(t_stack_node **a, t_stack_node **b, bool checker);
-void			pa(t_stack_node **a, t_stack_node **b, bool checker);
-void			pb(t_stack_node **b, t_stack_node **a, bool checker);
+void push_swap(t_two_stacks *stacks);
 
 #endif
+
