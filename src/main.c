@@ -6,7 +6,7 @@
 /*   By: rdiaz-fr <rdiaz-fr@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/21 15:47:27 by rdiaz-fr          #+#    #+#             */
-/*   Updated: 2023/12/21 16:07:16 by rdiaz-fr         ###   ########.fr       */
+/*   Updated: 2023/12/21 21:11:11 by rdiaz-fr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,11 @@ int	main(int argc, char **argv)
 		push(a, ft_atoi(argv[i]));
 		i++;
 	}
+	print_stack(a);
+	print_stack(b);
 	push_swap(a, b);
+	print_stack(a);
+	print_stack(b);
 	free(a);
 	free(b);
 	return (0);

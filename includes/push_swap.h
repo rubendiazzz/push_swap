@@ -6,7 +6,7 @@
 /*   By: rdiaz-fr <rdiaz-fr@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/21 16:03:15 by rdiaz-fr          #+#    #+#             */
-/*   Updated: 2023/12/21 16:06:52 by rdiaz-fr         ###   ########.fr       */
+/*   Updated: 2023/12/21 21:09:01 by rdiaz-fr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,5 +47,6 @@ void				swap(t_stack *stack);
 void				rotate(t_stack *stack);
 void				reverse_rotate(t_stack *stack);
 void				push_swap(t_stack *a, t_stack *b);
+void				print_stack(t_stack *stack);
 
 #endif

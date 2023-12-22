@@ -6,11 +6,26 @@
 /*   By: rdiaz-fr <rdiaz-fr@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/21 16:00:46 by rdiaz-fr          #+#    #+#             */
-/*   Updated: 2023/12/21 16:13:31 by rdiaz-fr         ###   ########.fr       */
+/*   Updated: 2023/12/21 21:11:49 by rdiaz-fr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
+#include "../libft/libft.h"
+
+void	print_stack(t_stack *stack)
+{
+	t_node	*current;
+
+	current = stack->top;
+	while (current != NULL)
+	{
+		ft_putnbr_fd(current->value, 1);
+		ft_putchar_fd(' ', 1);
+		current = current->next;
+	}
+	ft_putchar_fd('\n', 1);
+}
 
 void	swap(t_stack *stack)
 {
