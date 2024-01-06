@@ -1,101 +1,118 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   stack_operations.c                                 :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: rdiaz-fr <rdiaz-fr@student.42malaga.com    +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/12/21 16:00:46 by rdiaz-fr          #+#    #+#             */
-/*   Updated: 2023/12/21 21:11:49 by rdiaz-fr         ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
-
 #include "../includes/push_swap.h"
-#include "../libft/libft.h"
 
-void	print_stack(t_stack *stack)
+void	sa(t_stack *a)
 {
-	t_node	*current;
+	int	tmp;
 
-	current = stack->top;
-	while (current != NULL)
-	{
-		ft_putnbr_fd(current->value, 1);
-		ft_putchar_fd(' ', 1);
-		current = current->next;
-	}
-	ft_putchar_fd('\n', 1);
-}
-
-void	swap(t_stack *stack)
-{
-	t_node	*temp;
-
-	if (stack->top == NULL || stack->top->next == NULL)
+	if (stack_size(a) < 2)
 		return ;
-	temp = stack->top->next;
-	stack->top->next = temp->next;
-	temp->next = stack->top;
-	stack->top = temp;
+	tmp = a->array[a->top];
+	a->array[a->top] = a->array[a->top - 1];
+	a->array[a->top - 1] = tmp;
+	ft_putstr("sa\n");
 }
 
-int	pop(t_stack *stack)
+void	ra(t_stack *a)
 {
-	t_node	*temp;
-	int		popped_value;
+	int	tmp;
+	int	i;
 
-	if (stack->top == NULL)
-		return (-1);
-	temp = stack->top;
-	popped_value = temp->value;
-	stack->top = temp->next;
-	free(temp);
-	return (popped_value);
-}
-
-void	push(t_stack *stack, int value)
-{
-	t_node	*new_node;
-
-	new_node = (t_node *)malloc(sizeof(t_node));
-	if (!new_node)
+	if (stack_size(a) < 2)
 		return ;
-	new_node->value = value;
-	new_node->next = stack->top;
-	stack->top = new_node;
+	tmp = a->array[a->top];
+	for (i = a->top; i > 0; i--)
+		a->array[i] = a->array[i - 1];
+	a->array[0] = tmp;
+	ft_putstr("ra\n");
 }
 
-void	rotate(t_stack *stack)
+void	rra(t_stack *a)
 {
-	t_node	*temp;
-	t_node	*last;
+	int	tmp;
+	int	i;
 
-	if (stack->top == NULL || stack->top->next == NULL)
+	if (stack_size(a) < 2)
 		return ;
-	temp = stack->top;
-	last = stack->top;
-	while (last->next != NULL)
-		last = last->next;
-	stack->top = stack->top->next;
-	last->next = temp;
-	temp->next = NULL;
+	tmp = a->array[0];
+	for (i = 0; i < a->top; i++)
+		a->array[i] = a->array[i + 1];
+	a->array[a->top] = tmp;
+	ft_putstr("rra\n");
 }
 
-void	reverse_rotate(t_stack *stack)
+void	pb(t_stack *a, t_stack *b)
 {
-	t_node	*last;
-	t_node	*second_to_last;
-
-	if (stack->top == NULL || stack->top->next == NULL)
+	if (stack_size(a) < 1)
 		return ;
-	last = stack->top;
-	second_to_last = NULL;
-	while (last->next != NULL)
-	{
-		second_to_last = last;
-		last = last->next;
-	}
-	second_to_last->next = NULL;
-	last->next = stack->top;
-	stack->top = last;
+	push(b, pop(a));
+	ft_putstr("pb\n");
+}
+
+void	pa(t_stack *a, t_stack *b)
+{
+	if (stack_size(b) < 1)
+		return ;
+	push(a, pop(b));
+	ft_putstr("pa\n");
+}
+
+void	rrb(t_stack *b)
+{
+	int	tmp;
+	int	i;
+
+	if (stack_size(b) < 2)
+		return ;
+	tmp = b->array[0];
+	for (i = 0; i < b->top; i++)
+		b->array[i] = b->array[i + 1];
+	b->array[b->top] = tmp;
+	ft_putstr("rrb\n");
+}
+
+void	rb(t_stack *b)
+{
+	int	tmp;
+	int	i;
+
+	if (stack_size(b) < 2)
+		return ;
+	tmp = b->array[b->top];
+	for (i = b->top; i > 0; i--)
+		b->array[i] = b->array[i - 1];
+	b->array[0] = tmp;
+	ft_putstr("rb\n");
+}
+
+void	ss(t_stack *a, t_stack *b)
+{
+	sa(a);
+	sb(b);
+	ft_putstr("ss\n");
+}
+
+void	sb(t_stack *b)
+{
+	int	tmp;
+
+	if (stack_size(b) < 2)
+		return ;
+	tmp = b->array[b->top];
+	b->array[b->top] = b->array[b->top - 1];
+	b->array[b->top - 1] = tmp;
+	ft_putstr("sb\n");
+}
+
+void	rr(t_stack *a, t_stack *b)
+{
+	ra(a);
+	rb(b);
+	ft_putstr("rr\n");
+}
+
+void	rrr(t_stack *a, t_stack *b)
+{
+	rra(a);
+	rrb(b);
+	ft_putstr("rrr\n");
 }
