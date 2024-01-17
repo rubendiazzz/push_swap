@@ -6,8 +6,10 @@
 /*   By: rdiaz-fr <rdiaz-fr@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/16 14:52:30 by rdiaz-fr          #+#    #+#             */
-/*   Updated: 2024/01/16 14:52:43 by rdiaz-fr         ###   ########.fr       */
+/*   Updated: 2024/01/17 11:02:21 by rdiaz-fr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
+
+

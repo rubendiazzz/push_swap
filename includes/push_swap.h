@@ -6,11 +6,14 @@
 /*   By: rdiaz-fr <rdiaz-fr@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/16 14:53:02 by rdiaz-fr          #+#    #+#             */
-/*   Updated: 2024/01/16 14:53:13 by rdiaz-fr         ###   ########.fr       */
+/*   Updated: 2024/01/17 10:52:42 by rdiaz-fr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PUSH_SWAP_H
 # define PUSH_SWAP_H
+
+# define ARG = ''
+
 
 #endif
