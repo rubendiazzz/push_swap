@@ -1,19 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.h                                        :+:      :+:    :+:   */
+/*   stack_operations.h                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rdiaz-fr <rdiaz-fr@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/01/16 14:53:02 by rdiaz-fr          #+#    #+#             */
-/*   Updated: 2024/01/17 10:52:42 by rdiaz-fr         ###   ########.fr       */
+/*   Created: 2024/01/29 15:23:06 by rdiaz-fr          #+#    #+#             */
+/*   Updated: 2024/01/29 15:25:13 by rdiaz-fr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PUSH_SWAP_H
-# define PUSH_SWAP_H
+#ifndef STACK_OPERATIONS_H
+# define STACK_OPERATIONS_H
 
-# define ARG = ''
+# include "../includes/linked_list_utils.h"
 
+void	push(t_node **dest_stack, t_node **src_stack);
+void	swap(t_node **stack);
+void	rotate(t_node **stack);
+void	reverse_rotate(t_node **stack);
 
 #endif
