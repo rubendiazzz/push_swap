@@ -6,7 +6,7 @@
 /*   By: rdiaz-fr <rdiaz-fr@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/29 15:08:00 by rdiaz-fr          #+#    #+#             */
-/*   Updated: 2024/01/29 16:25:06 by rdiaz-fr         ###   ########.fr       */
+/*   Updated: 2024/01/29 16:35:54 by rdiaz-fr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,5 +21,8 @@ typedef struct s_node
 }					t_node;
 
 int					stack_size(t_node *stack);
+void				free_list(t_node **head);
+void				append_node(t_node **head, int value);
+t_node				*create_node(int value);
 
 #endif

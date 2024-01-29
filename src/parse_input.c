@@ -5,40 +5,35 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: rdiaz-fr <rdiaz-fr@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/01/29 15:46:20 by rdiaz-fr          #+#    #+#             */
-/*   Updated: 2024/01/29 15:55:07 by rdiaz-fr         ###   ########.fr       */
+/*   Created: 2024/01/29 16:44:41 by rdiaz-fr          #+#    #+#             */
+/*   Updated: 2024/01/29 16:47:11 by rdiaz-fr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/parse_input.h"
-#include "../libft/libft.h"
+#include "../printf/ft_printf.h"
 #include <limits.h>
 #include <stdbool.h>
 #include <stdlib.h>
+#include <unistd.h>
 
-#ifndef bool
-# define BOOL int
-# define TRUE 1
-# define FALSE 0
-#endif
-
-static BOOL	is_integer(const char *str)
+static bool	is_integer(const char *str)
 {
 	int	i;
 
+	if (str[0] == '-')
+		str++;
 	i = 0;
-	if (str[i] == '-')
-		i++;
-	while (str[i])
+	while (str[i] != '\0')
 	{
-		if (!ft_isdigit(str[i]))
-			return (FALSE);
+		if (str[i] < '0' || str[i] > '9')
+			return (false);
 		i++;
 	}
-	return (TRUE);
+	return (true);
 }
 
-static BOOL	check_duplicates(t_node *stack, int value)
+static bool	check_duplicates(t_node *stack, int value)
 {
 	t_node	*tmp;
 
@@ -46,28 +41,62 @@ static BOOL	check_duplicates(t_node *stack, int value)
 	while (tmp)
 	{
 		if (tmp->value == value)
-			return (FALSE);
+			return (false);
 		tmp = tmp->next;
 	}
-	return (TRUE);
+	return (true);
+}
+
+static int	parse_integer(const char *arg)
+{
+	int		val;
+	bool	negative;
+
+	val = 0;
+	negative = false;
+	if (*arg == '-')
+	{
+		negative = true;
+		arg++;
+	}
+	while (*arg != '\0')
+	{
+		val = val * 10 + (*arg - '0');
+		arg++;
+	}
+	if (negative)
+	{
+		val = -val;
+	}
+	return (val);
 }
 
 t_node	*parse_input(int argc, char **argv)
 {
-	t_node	*stack;
-	long	val;
-	int		i;
+	t_node		*stack;
+	int			i;
+	const char	*arg;
+	int			val;
 
-	stack = 0;
+	stack = NULL;
 	i = 1;
 	while (i < argc)
 	{
-		if (!is_integer(argv[i]))
+		arg = argv[i];
+		if (!is_integer(arg))
+		{
+			write(2, "Error: Argument is not a valid integer.\n", 40);
 			exit(1);
-		val = strtol(argv[i], 0, 10);
-		if (val < INT_MIN || val > INT_MAX || check_duplicates(stack, val))
+		}
+		val = parse_integer(arg);
+		ft_printf("Parsed value: %d\n", val);
+		if (val < INT_MIN || val > INT_MAX || !check_duplicates(stack, val))
+		{
+			write(2, "Error: Invalid integer value or duplicate detected.\n",
+				54);
 			exit(1);
-		append_node(&stack, (int)val);
+		}
+		append_node(&stack, val);
 		i++;
 	}
 	return (stack);

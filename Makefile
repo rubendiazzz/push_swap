@@ -5,38 +5,54 @@
 #                                                     +:+ +:+         +:+      #
 #    By: rdiaz-fr <rdiaz-fr@student.42malaga.com    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2023/12/21 15:43:44 by rdiaz-fr          #+#    #+#              #
-#    Updated: 2023/12/21 16:11:44 by rdiaz-fr         ###   ########.fr        #
+#    Created: 2024/01/29 16:53:54 by rdiaz-fr          #+#    #+#              #
+#    Updated: 2024/01/29 16:54:53 by rdiaz-fr         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 CC = gcc
 CFLAGS = -Wall -Wextra -Werror
-LIBFT = libft
-LIBFT_LIB = libft.a
-PUSH_SWAP = push_swap
-SRC = src/main.c src/stack_operations.c src/algorithm.c
-OBJ = $(SRC:.c=.o)
 
-all: $(LIBFT_LIB) $(PUSH_SWAP)
+NAME = push_swap
 
-$(LIBFT_LIB):
-	make -C $(LIBFT)
+SRC_DIR = src/
+OBJ_DIR = obj/
+INC_DIR = includes/
 
-$(PUSH_SWAP): $(OBJ)
-	$(CC) $(CFLAGS) -o $@ $^ -L$(LIBFT) -lft
+FT_PRINTF_SRC_DIR = ./printf/
+FT_PRINTF_OBJ_DIR = ./printf/
 
-%.o: %.c
-	$(CC) $(CFLAGS) -c $< -o $@
+LDFLAGS = -L$(FT_PRINTF_OBJ_DIR) -lftprintf
+
+SRCS = $(SRC_DIR)main.c $(SRC_DIR)stack_operations.c $(SRC_DIR)sort_three.c \
+       $(SRC_DIR)sort_five.c $(SRC_DIR)sort_large.c $(SRC_DIR)linked_list_utils.c \
+       $(SRC_DIR)parse_input.c $(SRC_DIR)utility_functions.c
+
+OBJS = $(SRCS:$(SRC_DIR)%.c=$(OBJ_DIR)%.o)
+
+INCLUDES = -I $(INC_DIR) -I $(FT_PRINTF_SRC_DIR)
+
+$(OBJ_DIR)%.o: $(SRC_DIR)%.c
+	@mkdir -p $(OBJ_DIR)
+	$(CC) $(CFLAGS) $(INCLUDES) -c $< -o $@
+
+$(FT_PRINTF_OBJ_DIR)libftprintf.a:
+	@make -C $(FT_PRINTF_SRC_DIR)
+
+$(NAME): $(FT_PRINTF_OBJ_DIR)libftprintf.a $(OBJS)
+	$(CC) $(OBJS) -o $(NAME) $(LDFLAGS)
+
+all: $(NAME)
 
 clean:
-	make clean -C $(LIBFT)
-	rm -f $(OBJ)
+	rm -rf $(OBJ_DIR)
 
 fclean: clean
-	make fclean -C $(LIBFT)
-	rm -f $(PUSH_SWAP)
+	rm -f $(NAME)
 
 re: fclean all
 
-.PHONY: all clean fclean re
+run: all
+	./$(NAME)
+
+.PHONY: all clean fclean re run

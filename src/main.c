@@ -6,7 +6,7 @@
 /*   By: rdiaz-fr <rdiaz-fr@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/29 16:16:16 by rdiaz-fr          #+#    #+#             */
-/*   Updated: 2024/01/29 16:28:06 by rdiaz-fr         ###   ########.fr       */
+/*   Updated: 2024/01/29 16:37:14 by rdiaz-fr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,6 @@
 int	main(int argc, char **argv)
 {
 	t_node	*stack_a;
-	int		stack_size;
 	t_node	*stack_b;
 	int		size;
 
