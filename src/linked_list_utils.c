@@ -6,7 +6,7 @@
 /*   By: rdiaz-fr <rdiaz-fr@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/29 15:09:43 by rdiaz-fr          #+#    #+#             */
-/*   Updated: 2024/01/29 15:22:34 by rdiaz-fr         ###   ########.fr       */
+/*   Updated: 2024/01/29 16:27:53 by rdiaz-fr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,4 +80,23 @@ void	free_list(t_node **head)
 		current = next;
 	}
 	*head = 0;
+}
+
+/**
+ * Calculates the size of the stack.
+ *
+ * @param stack A pointer to the top of the stack.
+ * @return The size of the stack as an integer.
+ */
+int	stack_size(t_node *stack)
+{
+	int	size;
+
+	size = 0;
+	while (stack)
+	{
+		size++;
+		stack = stack->next;
+	}
+	return (size);
 }
