@@ -123,23 +123,3 @@ To run the tester, use the following command:
 ```
 python3 tester.py
 ```
-
-## Tester Results
-
-The program is tested with 100 random numbers, and the average number of instructions is calculated.
-
-The results are the following:
-
-| Stack Size | Average Number of Instructions |
-| ---------- | ------------------------------ |
-| 3          | 3                              |
-| 5          | 12                             |
-| 100        | 700                            |
-| 500        | 5500                           |
-| 1000       | 11000                          |
-| 5000       | 55000                          |
-| 10000      | 110000                         |
-| 50000      | 550000                         |
-| 100000     | 1100000                        |
-| 500000     | 5500000                        |
-| 1000000    | 11000000                       |

@@ -6,7 +6,7 @@
 #    By: rdiaz-fr <rdiaz-fr@student.42malaga.com    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/01/29 17:00:01 by rdiaz-fr          #+#    #+#              #
-#    Updated: 2024/01/29 17:00:02 by rdiaz-fr         ###   ########.fr        #
+#    Updated: 2024/02/03 14:32:02 by rdiaz-fr         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -48,6 +48,7 @@ $(FT_PRINTF_DIR)libftprintf.a:
 
 clean:
 	rm -rf $(OBJ_DIR)
+	@make -C $(FT_PRINTF_DIR) fclean
 
 fclean: clean
 	rm -f $(NAME)

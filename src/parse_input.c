@@ -6,7 +6,7 @@
 /*   By: rdiaz-fr <rdiaz-fr@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/29 16:44:41 by rdiaz-fr          #+#    #+#             */
-/*   Updated: 2024/01/29 16:47:11 by rdiaz-fr         ###   ########.fr       */
+/*   Updated: 2024/02/03 14:48:16 by rdiaz-fr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,9 +65,7 @@ static int	parse_integer(const char *arg)
 		arg++;
 	}
 	if (negative)
-	{
 		val = -val;
-	}
 	return (val);
 }
 
