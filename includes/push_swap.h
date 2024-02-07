@@ -1,20 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   parse_input.h                                      :+:      :+:    :+:   */
+/*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rdiaz-fr <rdiaz-fr@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/01/29 15:43:55 by rdiaz-fr          #+#    #+#             */
-/*   Updated: 2024/01/29 16:37:31 by rdiaz-fr         ###   ########.fr       */
+/*   Created: 2024/02/07 11:17:15 by rdiaz-fr          #+#    #+#             */
+/*   Updated: 2024/02/07 11:20:12 by rdiaz-fr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PARSE_INPUT_H
-# define PARSE_INPUT_H
+#ifndef PUSH_SWAP_H
+# define PUSH_SWAP_H
 
-# include "linked_list_utils.h"
+# include "../libft/libft.h"
+# include <stdbool.h>
+# include <stddef.h>
+# include <stdio.h>
+# include <stdlib.h>
+# include <unistd.h>
 
-t_node	*parse_input(int argc, char **argv);
+typedef struct s_stack
+{
+	long			nb;
+	long			i;
+	struct s_stack	*next;
+	struct s_stack	*prev;
+}					t_stack;
 
 #endif
