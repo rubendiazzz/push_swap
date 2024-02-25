@@ -1,1 +1,70 @@
-.vscode/
+# macOS system files
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# Xcode
+build/
+DerivedData/
+*.pbxuser
+!default.pbxuser
+*.mode1v3
+!default.mode1v3
+*.mode2v3
+!default.mode2v3
+*.perspectivev3
+!default.perspectivev3
+xcuserdata/
+
+# Swift Package Manager
+.build/
+
+# CocoaPods
+Pods/
+*.xcworkspace
+!default.xcworkspace
+*.xcproject
+!default.xcproject
+
+# Carthage
+Carthage/Build/
+
+# fastlane
+fastlane/report.xml
+fastlane/Preview.html
+fastlane/screenshots
+
+# Generated files
+*.hmap
+*.ipa
+*.dSYM.zip
+*.dSYM
+
+# Dependency directories
+/venv/
+/node_modules/
+# Compiled object files
+*.o
+
+# Executables
+push_swap
+checker
+
+# Build directory
+build/
+
+# Dependency directory
+deps/
+
+# macOS system files
+.DS_Store
+
+# macOS folder attributes
+._*
+
+# macOS resource forks
+._.DS_Store
+
+# macOS temporary files
+*.swp
+*~
