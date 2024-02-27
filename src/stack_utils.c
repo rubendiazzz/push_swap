@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   stack_utils.c                                      :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: rdiaz-fr <rdiaz-fr@student.42malaga.com    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/02/27 11:04:24 by rdiaz-fr          #+#    #+#             */
+/*   Updated: 2024/02/27 11:24:00 by rdiaz-fr         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../inc/push_swap.h"
 
 int	stack_len(t_stack_node *stack)
@@ -59,8 +71,9 @@ t_stack_node	*find_min(t_stack_node *stack)
 
 t_stack_node	*find_max(t_stack_node *stack)
 {
-	long max;
-	t_stack_node *max_node;
+	t_stack_node	*max_node;
+	long			max;
+
 	if (!stack)
 		return (NULL);
 	max = LONG_MIN;

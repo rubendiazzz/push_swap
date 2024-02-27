@@ -1,9 +1,0 @@
-{
-	"files.associations": {
-		"push_swap.h": "c",
-		"unistd.h": "c",
-		"limits.h": "c",
-		"stdbool.h": "c",
-		"ft_printf.h": "c"
-	}
-}

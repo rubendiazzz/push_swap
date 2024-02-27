@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_atol.c                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: rdiaz-fr <rdiaz-fr@student.42malaga.com    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/02/27 10:57:59 by rdiaz-fr          #+#    #+#             */
+/*   Updated: 2024/02/27 11:01:29 by rdiaz-fr         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../inc/push_swap.h"
 
 long	ft_atol(const char *str)
@@ -10,10 +22,20 @@ long	ft_atol(const char *str)
 	result = 0;
 	i = 0;
 	while (ft_isspace(str[i]))
+	{
 		i++;
-	if (str[i] == '-' || str[i] == '+')
-		sign = (str[i++] == '-') ? -1 : 1;
+	}
+	if (str[i] == '-')
+	{
+		sign = -1;
+		i++;
+	}
+	else if (str[i] == '+')
+		i++;
 	while (ft_isdigit(str[i]))
-		result = result * 10 + (str[i++] - '0');
+	{
+		result = result * 10 + (str[i] - '0');
+		i++;
+	}
 	return (sign * result);
 }

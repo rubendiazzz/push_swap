@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_split.c                                         :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: rdiaz-fr <rdiaz-fr@student.42malaga.com    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/02/27 11:02:37 by rdiaz-fr          #+#    #+#             */
+/*   Updated: 2024/02/27 11:07:20 by rdiaz-fr         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../inc/push_swap.h"
 
 static int	count_words(char *s, char c)
@@ -26,11 +38,12 @@ static int	count_words(char *s, char c)
 
 static char	*get_next_word(char *s, char c)
 {
-	static int	cursor = 0;
+	static int	cursor;
 	char		*next_word;
 	int			len;
 	int			i;
 
+	cursor = 0;
 	len = 0;
 	i = 0;
 	while (s[cursor] == c)
@@ -48,9 +61,9 @@ static char	*get_next_word(char *s, char c)
 
 char	**split(char *s, char c)
 {
-	int words_count;
-	char **result_array;
-	int i;
+	int		words_count;
+	char	**result_array;
+	int		i;
 
 	i = 0;
 	words_count = count_words(s, c);
