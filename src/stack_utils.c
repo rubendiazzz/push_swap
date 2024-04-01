@@ -6,7 +6,7 @@
 /*   By: rdiaz-fr <rdiaz-fr@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/27 11:04:24 by rdiaz-fr          #+#    #+#             */
-/*   Updated: 2024/02/27 11:24:00 by rdiaz-fr         ###   ########.fr       */
+/*   Updated: 2024/04/01 14:24:20 by rdiaz-fr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,4 +88,3 @@ t_stack_node	*find_max(t_stack_node *stack)
 	}
 	return (max_node);
 }
-
